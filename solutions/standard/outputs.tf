@@ -2,7 +2,7 @@
 # Outputs
 ########################################################################################################################
 
-output "basic" {
-  description = "Outputs of the db2 resource"
+output "db2" {
+  description = "Outputs of the DB2 instance"
   value       = module.db2_instance.db2
 }

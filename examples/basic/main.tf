@@ -11,14 +11,16 @@ module "resource_group" {
 }
 
 ########################################################################################################################
-# COS instance
+# DB2 Module
 ########################################################################################################################
 
-resource "ibm_resource_instance" "cos_instance" {
-  name              = "${var.prefix}-cos"
-  resource_group_id = module.resource_group.resource_group_id
-  service           = "cloud-object-storage"
-  plan              = "standard"
-  location          = "global"
-  tags              = var.resource_tags
+module "db2_instance" {
+  source                      = "../.."
+  db2_instance_name           = try("${var.prefix}-${var.db2_instance_name}", var.db2_instance_name)
+  resource_group_id           = module.resource_group.resource_group_id
+  service_endpoints           = "public-and-private"
+  enable_high_availability    = false
+  enable_oracle_compatibility = false
+  node_type                   = "nil"
+  tags                        = var.resource_tags
 }

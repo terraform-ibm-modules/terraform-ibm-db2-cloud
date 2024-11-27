@@ -17,7 +17,7 @@ variable "region" {
 variable "prefix" {
   type        = string
   description = "Prefix to append to all resources created by this example"
-  default     = "basic"
+  default     = null
 }
 
 variable "resource_group" {
@@ -35,4 +35,16 @@ variable "resource_tags" {
 variable "db2_instance_name" {
   type        = string
   description = "The name of the DB2 instance"
+}
+
+variable "node_type" {
+  type        = string
+  description = "The node type of the DB2 instance, supported values are `nil`, `bx2.4x16`, or `bx2.8x32`"
+  default     = "nil"
+}
+
+variable "enable_oracle_compatibility" {
+  type        = bool
+  description = "Whether to enable Oracle compatibility on the DB2 instance"
+  default     = false
 }

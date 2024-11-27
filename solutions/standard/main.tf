@@ -11,16 +11,16 @@ module "resource_group" {
 }
 
 ########################################################################################################################
-# DB2 Module
+# DB2 instance
 ########################################################################################################################
 
 module "db2_instance" {
   source                      = "../.."
   db2_instance_name           = try("${var.prefix}-${var.db2_instance_name}", var.db2_instance_name)
   resource_group_id           = module.resource_group.resource_group_id
-  service_endpoints           = var.service_endpoints
+  service_endpoints           = "private"
   enable_high_availability    = true
-  enable_oracle_compatibility = var.oracle_compatibility
-  node_type                   = "nil"
+  enable_oracle_compatibility = var.enable_oracle_compatibility
+  node_type                   = var.node_type
   tags                        = var.resource_tags
 }
