@@ -20,10 +20,15 @@ variable "prefix" {
   default     = null
 }
 
-variable "resource_group" {
+variable "use_existing_resource_group" {
+  type        = bool
+  description = "Whether to use an existing resource group."
+  default     = false
+}
+
+variable "resource_group_name" {
   type        = string
-  description = "The name of an existing resource group to provision resources in to. If not set a new resource group will be created using the prefix variable"
-  default     = null
+  description = "The name of a new or an existing resource group in which to provision key management resources to. If a prefix input variable is specified, it's added to the value in the `<prefix>-value` format."
 }
 
 variable "resource_tags" {
