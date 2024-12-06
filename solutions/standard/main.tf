@@ -15,6 +15,7 @@ module "resource_group" {
 
 module "db2_instance" {
   source                      = "../.."
+  region                      = var.region
   db2_instance_name           = try("${var.prefix}-${var.db2_instance_name}", var.db2_instance_name)
   resource_group_id           = module.resource_group.resource_group_id
   service_endpoints           = "private"

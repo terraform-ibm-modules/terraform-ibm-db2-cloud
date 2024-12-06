@@ -5,7 +5,7 @@ This file is used to implement the ROOT module.
 resource "ibm_db2" "db2" {
   name              = var.db2_instance_name
   resource_group_id = var.resource_group_id
-  location          = "us-south"
+  location          = var.region
   plan              = "performance-preprod"
   service           = "dashdb-for-transactions"
   high_availability = var.enable_high_availability ? "yes" : "no"

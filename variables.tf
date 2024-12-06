@@ -12,6 +12,12 @@ variable "resource_group_id" {
   description = "ID of resource group to provision DB2 instance in"
 }
 
+variable "region" {
+  type        = string
+  description = "Region to provision the DB2 instance"
+  default     = "us-south"
+}
+
 variable "service_endpoints" {
   type        = string
   description = "Service endpoints for the DB2 instance, valid values are `public`, `private`, or `public-and-private`"

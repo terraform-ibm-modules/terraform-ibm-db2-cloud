@@ -118,6 +118,7 @@ No modules.
 | <a name="input_enable_high_availability"></a> [enable\_high\_availability](#input\_enable\_high\_availability) | Whether to enable high availability on the DB2 instance | `bool` | `false` | no |
 | <a name="input_enable_oracle_compatibility"></a> [enable\_oracle\_compatibility](#input\_enable\_oracle\_compatibility) | Whether to enable Oracle compatibility on the DB2 instance | `bool` | `false` | no |
 | <a name="input_node_type"></a> [node\_type](#input\_node\_type) | The node type of the DB2 instance, supported values are `nil`, `bx2.4x16`, or `bx2.8x32` | `string` | `"nil"` | no |
+| <a name="input_region"></a> [region](#input\_region) | Region to provision the DB2 instance | `string` | `"us-south"` | no |
 | <a name="input_resource_group_id"></a> [resource\_group\_id](#input\_resource\_group\_id) | ID of resource group to provision DB2 instance in | `string` | n/a | yes |
 | <a name="input_service_endpoints"></a> [service\_endpoints](#input\_service\_endpoints) | Service endpoints for the DB2 instance, valid values are `public`, `private`, or `public-and-private` | `string` | `"public"` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | Tags applied to the DB2 resource instance | `list(string)` | `[]` | no |
