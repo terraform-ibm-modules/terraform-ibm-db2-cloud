@@ -97,7 +97,7 @@ statement instead the previous block.
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.3.0 |
-| <a name="requirement_ibm"></a> [ibm](#requirement\_ibm) | 1.72.0-beta0 |
+| <a name="requirement_ibm"></a> [ibm](#requirement\_ibm) | 1.72.1 |
 
 ### Modules
 
@@ -107,8 +107,8 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [ibm_db2.db2](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.72.0-beta0/docs/resources/db2) | resource |
-| [ibm_resource_tag.tags](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.72.0-beta0/docs/resources/resource_tag) | resource |
+| [ibm_db2.db2](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.72.1/docs/resources/db2) | resource |
+| [ibm_resource_tag.tags](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.72.1/docs/resources/resource_tag) | resource |
 
 ### Inputs
 
