@@ -91,7 +91,7 @@ func TestRunDASchematics(t *testing.T) {
 		{Name: "prefix", Value: options.Prefix, DataType: "string"},
 		{Name: "db2_instance_name", Value: "standard-db2", DataType: "string"},
 		{Name: "resource_group_name", Value: resourceGroup, DataType: "string"},
-		{Name: "use_existing_resource_group", Value: true, DataType: "boolean"},
+		{Name: "use_existing_resource_group", Value: true, DataType: "string"},
 		{Name: "region", Value: region, DataType: "string"},
 	}
 
