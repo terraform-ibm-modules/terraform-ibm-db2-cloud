@@ -4,15 +4,15 @@
 
 output "crn" {
   description = "CRN of the DB2 instance"
-  value       = ibm_db2.db2.crn
+  value       = module.db2_instance.crn
 }
 
 output "dashboard_url" {
   description = "Dashboard URL of the DB2 instance"
-  value       = ibm_db2.db2.dashboard_url
+  value       = module.db2_instance.dashboard_url
 }
 
 output "name" {
   description = "Name of the DB2 instance"
-  value       = ibm_db2.db2.name
+  value       = module.db2_instance.name
 }
