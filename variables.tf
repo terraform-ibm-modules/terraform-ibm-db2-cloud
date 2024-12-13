@@ -11,6 +11,7 @@ variable "subscription_id" {
   type        = string
   description = "Value of the subscription ID to use with the subscription plan of DB2"
   default     = null
+  sensitive   = true
 }
 
 variable "resource_group_id" {
