@@ -79,6 +79,7 @@ func TestRunDASchematics(t *testing.T) {
 		TarIncludePatterns:     []string{"*.tf", fmt.Sprintf("%s/*.tf", solutionDir)},
 		TemplateFolder:         solutionDir,
 		ResourceGroup:          resourceGroup,
+		Region:                 region,
 		Prefix:                 "db2-schem",
 		Tags:                   []string{"test-schematic"},
 		DeleteWorkspaceOnFail:  false,

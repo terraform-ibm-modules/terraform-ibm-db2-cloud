@@ -6,7 +6,7 @@ resource "ibm_db2" "db2" {
   name              = var.db2_instance_name
   resource_group_id = var.resource_group_id
   location          = var.region
-  plan              = var.subscription_id == null ? "performance-preprod" : "PerformanceSubscription"
+  plan              = var.subscription_id == null ? "performance" : "PerformanceSubscription"
   service           = "dashdb-for-transactions"
   high_availability = var.enable_high_availability ? "yes" : "no"
   service_endpoints = var.service_endpoints
