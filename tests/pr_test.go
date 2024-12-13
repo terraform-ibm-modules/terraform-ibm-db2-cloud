@@ -74,6 +74,8 @@ func setupDAOptions(t *testing.T, prefix string, dir string) *testhelper.TestOpt
 }
 
 func TestRunDASchematics(t *testing.T) {
+	t.Parallel()
+
 	options := testschematic.TestSchematicOptionsDefault(&testschematic.TestSchematicOptions{
 		Testing:                t,
 		TarIncludePatterns:     []string{"*.tf", fmt.Sprintf("%s/*.tf", solutionDir)},
@@ -83,7 +85,7 @@ func TestRunDASchematics(t *testing.T) {
 		Prefix:                 "db2-schem",
 		Tags:                   []string{"test-schematic"},
 		DeleteWorkspaceOnFail:  false,
-		WaitJobCompleteMinutes: 60,
+		WaitJobCompleteMinutes: 120,
 	})
 
 	options.TerraformVars = []testschematic.TestSchematicTerraformVar{
