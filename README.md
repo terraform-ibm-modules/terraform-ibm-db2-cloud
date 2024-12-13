@@ -1,5 +1,5 @@
 <!-- Update this title with a descriptive name. Use sentence case. -->
-# DB2 project
+# Cloud Automation for DB2 SaaS
 
 <!--
 Update status and "latest release" badges:
@@ -97,7 +97,7 @@ statement instead the previous block.
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.3.0 |
-| <a name="requirement_ibm"></a> [ibm](#requirement\_ibm) | >= 1.72.1 |
+| <a name="requirement_ibm"></a> [ibm](#requirement\_ibm) | >= 1.72.1, < 2.0.0 |
 
 ### Modules
 
