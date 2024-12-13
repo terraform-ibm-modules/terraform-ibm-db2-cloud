@@ -15,6 +15,9 @@ const resourceGroup = "geretain-test-resources"
 const advancedExampleDir = "examples/advanced"
 const solutionDir = "solutions/standard"
 
+// Service not available in all regions, hard-coding to us-east for time being
+const region = "us-east"
+
 func setupOptions(t *testing.T, prefix string, dir string) *testhelper.TestOptions {
 	options := testhelper.TestOptionsDefaultWithVars(&testhelper.TestOptions{
 		Testing:       t,
@@ -23,6 +26,7 @@ func setupOptions(t *testing.T, prefix string, dir string) *testhelper.TestOptio
 		ResourceGroup: resourceGroup,
 		TerraformVars: map[string]interface{}{
 			"db2_instance_name": "db2",
+			"region":            region,
 		},
 	})
 	return options
@@ -63,6 +67,7 @@ func setupDAOptions(t *testing.T, prefix string, dir string) *testhelper.TestOpt
 		"db2_instance_name":           "db2-da",
 		"resource_group_name":         resourceGroup,
 		"use_existing_resource_group": true,
+		"region":                      region,
 	}
 
 	return options
@@ -86,6 +91,7 @@ func TestRunDASchematics(t *testing.T) {
 		{Name: "db2_instance_name", Value: "standard-db2", DataType: "string"},
 		{Name: "resource_group_name", Value: resourceGroup, DataType: "string"},
 		{Name: "use_existing_resource_group", Value: true, DataType: "boolean"},
+		{Name: "region", Value: region, DataType: "string"},
 	}
 
 	err := options.RunSchematicTest()
