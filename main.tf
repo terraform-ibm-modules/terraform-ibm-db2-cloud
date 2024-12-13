@@ -15,7 +15,7 @@ resource "ibm_db2" "db2" {
     "oracle_compatibility" : var.enable_oracle_compatibility ? "yes" : "no",
     "version" : "12",
     "node_type" : var.node_type,
-    "subscription_id" : var.subscription_id
+    "subscription_id" : var.subscription_id == null ? "" : var.subscription_id
   }
 
   timeouts {
