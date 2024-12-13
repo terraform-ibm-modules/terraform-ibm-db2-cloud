@@ -4,5 +4,5 @@
 
 output "advanced" {
   description = "Outputs of the db2 resource"
-  value       = module.db2_instance.db2
+  value       = module.db2_instance
 }

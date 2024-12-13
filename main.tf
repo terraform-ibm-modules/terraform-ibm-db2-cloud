@@ -6,7 +6,7 @@ resource "ibm_db2" "db2" {
   name              = var.db2_instance_name
   resource_group_id = var.resource_group_id
   location          = var.region
-  plan              = "performance-preprod"
+  plan              = var.subscription_id == null ? "performance-preprod" : "PerformanceSubscription"
   service           = "dashdb-for-transactions"
   high_availability = var.enable_high_availability ? "yes" : "no"
   service_endpoints = var.service_endpoints
@@ -14,7 +14,8 @@ resource "ibm_db2" "db2" {
   parameters = {
     "oracle_compatibility" : var.enable_oracle_compatibility ? "yes" : "no",
     "version" : "12",
-    "node_type" : var.node_type
+    "node_type" : var.node_type,
+    "subscription_id" : var.subscription_id
   }
 
   timeouts {

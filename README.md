@@ -97,7 +97,7 @@ statement instead the previous block.
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.3.0 |
-| <a name="requirement_ibm"></a> [ibm](#requirement\_ibm) | 1.72.1 |
+| <a name="requirement_ibm"></a> [ibm](#requirement\_ibm) | >= 1.72.1 |
 
 ### Modules
 
@@ -107,8 +107,8 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [ibm_db2.db2](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.72.1/docs/resources/db2) | resource |
-| [ibm_resource_tag.tags](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.72.1/docs/resources/resource_tag) | resource |
+| [ibm_db2.db2](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/db2) | resource |
+| [ibm_resource_tag.tags](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/resource_tag) | resource |
 
 ### Inputs
 
@@ -117,17 +117,20 @@ No modules.
 | <a name="input_db2_instance_name"></a> [db2\_instance\_name](#input\_db2\_instance\_name) | Name to give to the DB2 instance being provisioned | `string` | n/a | yes |
 | <a name="input_enable_high_availability"></a> [enable\_high\_availability](#input\_enable\_high\_availability) | Whether to enable high availability on the DB2 instance | `bool` | `false` | no |
 | <a name="input_enable_oracle_compatibility"></a> [enable\_oracle\_compatibility](#input\_enable\_oracle\_compatibility) | Whether to enable Oracle compatibility on the DB2 instance | `bool` | `false` | no |
-| <a name="input_node_type"></a> [node\_type](#input\_node\_type) | The node type of the DB2 instance, supported values are `nil`, `bx2.4x16`, or `bx2.8x32` | `string` | `"nil"` | no |
+| <a name="input_node_type"></a> [node\_type](#input\_node\_type) | The node type of the DB2 instance, supported values are `bx2.4x16`, `bx2.8x32`, `bx2.16x64`, `bx2.32.128`, `bx2.48x192`, `mx2.4x32`, `mx2.16x128`, or `mx2.128x1024` | `string` | `"bx2.4x16"` | no |
 | <a name="input_region"></a> [region](#input\_region) | Region to provision the DB2 instance | `string` | `"us-south"` | no |
 | <a name="input_resource_group_id"></a> [resource\_group\_id](#input\_resource\_group\_id) | ID of resource group to provision DB2 instance in | `string` | n/a | yes |
 | <a name="input_service_endpoints"></a> [service\_endpoints](#input\_service\_endpoints) | Service endpoints for the DB2 instance, valid values are `public`, `private`, or `public-and-private` | `string` | `"public"` | no |
+| <a name="input_subscription_id"></a> [subscription\_id](#input\_subscription\_id) | Value of the subscription ID to use with the subscription plan of DB2 | `string` | `null` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | Tags applied to the DB2 resource instance | `list(string)` | `[]` | no |
 
 ### Outputs
 
 | Name | Description |
 |------|-------------|
-| <a name="output_db2"></a> [db2](#output\_db2) | Outputs of the DB2 resource |
+| <a name="output_crn"></a> [crn](#output\_crn) | CRN of the DB2 instance |
+| <a name="output_dashboard_url"></a> [dashboard\_url](#output\_dashboard\_url) | Dashboard URL of the DB2 instance |
+| <a name="output_name"></a> [name](#output\_name) | Name of the DB2 instance |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 <!-- Leave this section as is so that your module has a link to local development environment set-up steps for contributors to follow -->

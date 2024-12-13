@@ -8,10 +8,21 @@ variable "ibmcloud_api_key" {
   sensitive   = true
 }
 
+variable "provider_visibility" {
+  description = "Set the visibility value for the IBM terraform provider. Supported values are `public`, `private`, `public-and-private`. [Learn more](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/guides/custom-service-endpoints)."
+  type        = string
+  default     = "private"
+
+  validation {
+    condition     = contains(["public", "private", "public-and-private"], var.provider_visibility)
+    error_message = "Invalid visibility option. Allowed values are 'public', 'private', or 'public-and-private'."
+  }
+}
+
 variable "region" {
   type        = string
   description = "Region to provision all resources created by this example"
-  default     = "us-south"
+  default     = "us-east"
 }
 
 variable "prefix" {
@@ -42,10 +53,23 @@ variable "db2_instance_name" {
   description = "The name of the DB2 instance"
 }
 
+variable "subscription_id" {
+  type        = string
+  description = "Value of the subscription ID to use with the subscription plan of DB2"
+  default     = null
+  sensitive   = true
+}
+
+variable "subscription_id_secret_crn" {
+  type        = string
+  description = "CRN of the secret which contains the subscription ID to use the subscription plan of DB2"
+  default     = null
+}
+
 variable "node_type" {
   type        = string
-  description = "The node type of the DB2 instance, supported values are `nil`, `bx2.4x16`, or `bx2.8x32`"
-  default     = "nil"
+  description = "The node type of the DB2 instance, valid values are `bx2.4x16`, `bx2.8x32`, `bx2.16x64`, `bx2.32x128`, `bx2.48x192`, `mx2.4x32`, `mx2.16x128`, `mx2.128x1024`"
+  default     = "bx2.4x16"
 }
 
 variable "enable_oracle_compatibility" {

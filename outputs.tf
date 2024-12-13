@@ -2,9 +2,17 @@
 # Outputs
 ########################################################################################################################
 
-# Outputs for the resource instance currently unknown
-# adding all outputs until these are known to replace this
-output "db2" {
-  description = "Outputs of the DB2 resource"
-  value       = ibm_db2.db2
+output "crn" {
+  description = "CRN of the DB2 instance"
+  value       = ibm_db2.db2.crn
+}
+
+output "dashboard_url" {
+  description = "Dashboard URL of the DB2 instance"
+  value       = ibm_db2.db2.dashboard_url
+}
+
+output "name" {
+  description = "Name of the DB2 instance"
+  value       = ibm_db2.db2.name
 }
