@@ -73,7 +73,8 @@
                 "required": true
               },
               {
-                "key": "use_existing_resource_group"
+                "key": "use_existing_resource_group",
+                "required": true
               },
               {
                 "key": "region",
