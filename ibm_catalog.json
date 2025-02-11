@@ -120,7 +120,7 @@
                 {
                   "diagram": {
                     "caption": "IBM DB2 on Cloud",
-                    "url": "https://raw.githubusercontent.com/terraform-ibm-modules/terraform-ibm-db2-cloud/main/reference-architecture/deployable-architecture-db2cloud.svg",
+                    "url": "https://raw.githubusercontent.com/terraform-ibm-modules/terraform-ibm-db2-cloud/main/reference-architectures/deployable-architecture-db2cloud.svg",
                     "type": "image/svg+xml"
                   },
                   "description": "This architecture supports creating and configuring DB on Cloud resources"
