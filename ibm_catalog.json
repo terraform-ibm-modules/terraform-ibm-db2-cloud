@@ -69,19 +69,17 @@
                 ]
               },
               {
-                "key": "use_existing_resource_group"
+                "key": "resource_group_name",
+                "required": true
               },
               {
-                "key": "resource_group_name",
+                "key": "use_existing_resource_group",
                 "required": true
               },
               {
                 "key": "region",
                 "required": true,
                 "default_value": "us-east"
-              },
-              {
-                "key": "resource_tags"
               },
               {
                 "key": "prefix"
@@ -91,10 +89,19 @@
                 "required": true
               },
               {
+                "key": "subscription_id"
+              },
+              {
+                "key": "subscription_id_secret_crn"
+              },
+              {
                 "key": "node_type"
               },
               {
                 "key": "enable_oracle_compatibility"
+              },
+              {
+                "key": "resource_tags"
               }
             ],
             "architecture": {
@@ -113,7 +120,7 @@
                 {
                   "diagram": {
                     "caption": "IBM DB2 on Cloud",
-                    "url": "https://raw.githubusercontent.com/terraform-ibm-modules/terraform-ibm-db2-cloud/main/reference-architecture/deployable-architecture-db2cloud.svg",
+                    "url": "https://raw.githubusercontent.com/terraform-ibm-modules/terraform-ibm-db2-cloud/main/reference-architectures/deployable-architecture-db2cloud.svg",
                     "type": "image/svg+xml"
                   },
                   "description": "This architecture supports creating and configuring DB on Cloud resources"
