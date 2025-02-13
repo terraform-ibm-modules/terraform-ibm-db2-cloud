@@ -5,7 +5,7 @@
 module "resource_group" {
   source                       = "terraform-ibm-modules/resource-group/ibm"
   version                      = "1.1.6"
-  resource_group_name          = var.use_existing_resource_group == false ? (var.prefix != null ? "${var.prefix}-${var.resource_group_name}" : var.resource_group_name) : null
+  resource_group_name          = var.use_existing_resource_group == false ? (try("${local.prefix}-${var.resource_group_name}", var.resource_group_name)) : null
   existing_resource_group_name = var.use_existing_resource_group == true ? var.resource_group_name : null
 }
 
@@ -27,6 +27,7 @@ data "ibm_sm_arbitrary_secret" "sm_subscription_id" {
 locals {
   sm_region       = var.subscription_id_secret_crn != null ? module.crn_parser_subid[0].region : ""
   subscription_id = var.subscription_id_secret_crn != null ? data.ibm_sm_arbitrary_secret.sm_subscription_id[0].payload : (var.subscription_id != null ? var.subscription_id : null)
+  prefix          = var.prefix != null ? (var.prefix != "" ? var.prefix : null) : null
 }
 
 ########################################################################################################################
@@ -36,7 +37,7 @@ locals {
 module "db2_instance" {
   source                      = "../.."
   region                      = var.region
-  db2_instance_name           = try("${var.prefix}-${var.db2_instance_name}", var.db2_instance_name)
+  db2_instance_name           = try("${local.prefix}-${var.db2_instance_name}", var.db2_instance_name)
   subscription_id             = local.subscription_id
   resource_group_id           = module.resource_group.resource_group_id
   service_endpoints           = "private"
