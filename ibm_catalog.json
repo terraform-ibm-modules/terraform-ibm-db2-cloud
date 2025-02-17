@@ -82,7 +82,9 @@
                 "default_value": "us-east"
               },
               {
-                "key": "prefix"
+                "key": "prefix",
+                "required": true,
+                "description": "The prefix to add to all resources that this solution creates. To not use any prefix value, you can enter the string `__NULL__`."
               },
               {
                 "key": "db2_instance_name",
