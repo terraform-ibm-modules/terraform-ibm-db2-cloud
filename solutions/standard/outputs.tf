@@ -16,3 +16,8 @@ output "name" {
   description = "Name of the DB2 instance"
   value       = module.db2_instance.name
 }
+
+output "resource_group_name" {
+  description = "Resource group name where DB2 instance is created"
+  value       = module.resource_group.resource_group_name
+}
