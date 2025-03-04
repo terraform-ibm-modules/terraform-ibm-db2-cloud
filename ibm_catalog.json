@@ -185,15 +185,6 @@
                 "input_mapping": [
                   {
                     "reference_version": true,
-                    "dependency_input": "resource_group_name",
-                    "version_input": "existing_resource_group_name"
-                  },
-                  {
-                    "value": true,
-                    "dependency_input": "use_existing_resource_group"
-                  },
-                  {
-                    "reference_version": true,
                     "dependency_input": "region",
                     "version_input": "region"
                   },
@@ -238,8 +229,7 @@
             "dependency_version_2": true,
             "configuration": [
               {
-                "key": "ibmcloud_api_key",
-                "required": true
+                "key": "ibmcloud_api_key"
               },
               {
                 "key": "provider_visibility",
@@ -265,7 +255,16 @@
               {
                 "key": "region",
                 "required": true,
-                "default_value": "us-east"
+                "default_value": "us-east",
+                "custom_config": {
+                  "type": "region",
+                  "grouping": "deployment",
+                  "original_grouping": "deployment",
+                  "config_constraints": {
+                    "filter_string": "id:au-syd,jp-tok,us-east,us-south",
+                    "show_kinds": ["region", "zone", "dc", "location"]
+                  }
+                }
               },
               {
                 "key": "prefix",
@@ -283,13 +282,13 @@
                 "key": "subscription_id_secret_crn"
               },
               {
+                "key": "resource_tags"
+              },
+              {
                 "key": "node_type"
               },
               {
                 "key": "enable_oracle_compatibility"
-              },
-              {
-                "key": "resource_tags"
               }
             ]
           }
