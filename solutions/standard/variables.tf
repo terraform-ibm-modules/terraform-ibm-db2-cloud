@@ -28,7 +28,7 @@ variable "region" {
 variable "prefix" {
   type        = string
   description = "The prefix to add to all resources that this solution creates. To not use any prefix value, you can set this value to `null` or an empty string."
-  default     = "dev"
+  nullable    = true
 }
 
 variable "existing_resource_group_name" {
