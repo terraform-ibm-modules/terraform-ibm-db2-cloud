@@ -116,6 +116,10 @@
                     "value": true
                   },
                   {
+                    "dependency_input": "provision_trusted_profile_projects",
+                    "value": false
+                  },
+                  {
                     "dependency_output": "workload_resource_group_name",
                     "version_input": "existing_resource_group_name"
                   }
