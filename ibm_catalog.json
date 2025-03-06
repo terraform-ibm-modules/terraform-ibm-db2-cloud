@@ -155,16 +155,24 @@
               {
                 "key": "region",
                 "required": true,
-                "default_value": "us-east",
-                "custom_config": {
-                  "type": "region",
-                  "grouping": "deployment",
-                  "original_grouping": "deployment",
-                  "config_constraints": {
-                    "filter_string": "id:au-syd,jp-tok,us-east,us-south",
-                    "show_kinds": ["region", "zone", "dc", "location"]
+                "options": [
+                  {
+                    "displayname": "Washington D.C. (us-east)",
+                    "value": "us-east"
+                  },
+                  {
+                    "displayname": "Dallas (us-south)",
+                    "value": "us-south"
+                  },
+                  {
+                    "displayname": "Sydney (au-syd)",
+                    "value": "au-syd"
+                  },
+                  {
+                    "displayname": "Tokyo (jp-tok)",
+                    "value": "jp-tok"
                   }
-                }
+                ]
               },
               {
                 "key": "prefix",
