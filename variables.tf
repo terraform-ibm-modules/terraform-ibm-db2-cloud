@@ -23,6 +23,11 @@ variable "region" {
   type        = string
   description = "Region to provision the DB2 instance"
   default     = "us-south"
+
+  validation {
+    condition     = contains(["us-south", "us-east", "au-syd", "jp-tok"], var.region)
+    error_message = "Region for the DB2 instance must be one of the following: `us-east`, `us-south`, `au-syd`, `jp-tok`"
+  }
 }
 
 variable "service_endpoints" {
