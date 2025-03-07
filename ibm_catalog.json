@@ -112,10 +112,6 @@
                     "version_input": "prefix"
                   },
                   {
-                    "dependency_input": "skip_iam_account_settings",
-                    "value": true
-                  },
-                  {
                     "dependency_input": "provision_trusted_profile_projects",
                     "value": false
                   },
