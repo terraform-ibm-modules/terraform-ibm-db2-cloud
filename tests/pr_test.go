@@ -13,7 +13,7 @@ import (
 // Use existing resource group
 const resourceGroup = "geretain-test-resources"
 const advancedExampleDir = "examples/advanced"
-const solutionDir = "solutions/standard"
+const solutionDir = "solutions/fully-configurable"
 
 // Service not available in all regions, hard-coding to us-east for time being
 const region = "us-east"
@@ -54,35 +54,14 @@ func TestRunUpgradeExample(t *testing.T) {
 	}
 }
 
-func setupDAOptions(t *testing.T, prefix string, dir string) *testhelper.TestOptions {
-	options := testhelper.TestOptionsDefault(&testhelper.TestOptions{
-		Testing:      t,
-		TerraformDir: dir,
-		Prefix:       prefix,
-	})
-
-	options.TerraformVars = map[string]interface{}{
-		"provider_visibility":         "public",
-		"prefix":                      options.Prefix,
-		"db2_instance_name":           "db2-da",
-		"resource_group_name":         resourceGroup,
-		"use_existing_resource_group": true,
-		"region":                      region,
-	}
-
-	return options
-}
-
-func TestRunDASchematics(t *testing.T) {
-	t.Parallel()
-
+func setupDAOptions(t *testing.T, prefix string, dir string) *testschematic.TestSchematicOptions {
 	options := testschematic.TestSchematicOptionsDefault(&testschematic.TestSchematicOptions{
 		Testing:                t,
 		TarIncludePatterns:     []string{"*.tf", fmt.Sprintf("%s/*.tf", solutionDir)},
 		TemplateFolder:         solutionDir,
 		ResourceGroup:          resourceGroup,
 		Region:                 region,
-		Prefix:                 "db2-schem",
+		Prefix:                 prefix,
 		Tags:                   []string{"test-schematic"},
 		DeleteWorkspaceOnFail:  false,
 		WaitJobCompleteMinutes: 120,
@@ -92,23 +71,29 @@ func TestRunDASchematics(t *testing.T) {
 		{Name: "ibmcloud_api_key", Value: options.RequiredEnvironmentVars["TF_VAR_ibmcloud_api_key"], DataType: "string", Secure: true},
 		{Name: "prefix", Value: options.Prefix, DataType: "string"},
 		{Name: "db2_instance_name", Value: "standard-db2", DataType: "string"},
-		{Name: "resource_group_name", Value: resourceGroup, DataType: "string"},
-		{Name: "use_existing_resource_group", Value: true, DataType: "string"},
+		{Name: "existing_resource_group_name", Value: resourceGroup, DataType: "string"},
 		{Name: "region", Value: region, DataType: "string"},
 	}
 
-	err := options.RunSchematicTest()
-	assert.NoError(t, err, "Schematic Test had unexpected error")
+	return options
 }
 
-func TestRunUpgradeDA(t *testing.T) {
+func TestRunDASchematics(t *testing.T) {
+	t.Parallel()
+
+	options := setupDAOptions(t, "db2", solutionDir)
+
+	err := options.RunSchematicTest()
+	assert.NoError(t, err, "Schematic Test had an unexpected error")
+}
+
+func TestRunUpgradeDASchematics(t *testing.T) {
 	t.Parallel()
 
 	options := setupDAOptions(t, "db2-upg", solutionDir)
 
-	output, err := options.RunTestUpgrade()
+	err := options.RunSchematicUpgradeTest()
 	if !options.UpgradeTestSkipped {
-		assert.Nil(t, err, "This should not have errored")
-		assert.NotNil(t, output, "Expected some output")
+		assert.NoError(t, err, "Schematic Upgrade Test had an unexpected error")
 	}
 }

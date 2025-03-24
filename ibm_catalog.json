@@ -21,7 +21,7 @@
         ],
         "short_description": "Creates and configures IBM Cloud DB2 on Cloud resources",
         "long_description": "This architecture supports creating and configuring an IBM DB2 on Cloud service instance.",
-        "offering_docs_url": "https://github.com/terraform-ibm-modules/terraform-ibm-db2-cloud/blob/main/solutions/standard/README.md",
+        "offering_docs_url": "https://github.com/terraform-ibm-modules/terraform-ibm-db2-cloud/blob/main/solutions/fully-configurable/README.md",
         "offering_icon_url": "https://raw.githubusercontent.com/terraform-ibm-modules/terraform-ibm-db2-cloud/main/images/DB2.svg",
         "provider_name": "IBM",
         "features": [
@@ -36,7 +36,7 @@
             "label": "Standard",
             "name": "standard",
             "install_type": "fullstack",
-            "working_directory": "solutions/standard",
+            "working_directory": "solutions/fully-configurable",
             "iam_permissions": [
               {
                 "role_crns": [
@@ -69,17 +69,50 @@
                 ]
               },
               {
-                "key": "resource_group_name",
-                "required": true
-              },
-              {
-                "key": "use_existing_resource_group",
+                "key": "existing_resource_group_name",
                 "required": true
               },
               {
                 "key": "region",
                 "required": true,
-                "default_value": "us-east"
+                "options": [
+                  {
+                    "displayname": "Sydney (au-syd)",
+                    "value": "au-syd"
+                  },
+                  {
+                    "displayname": "Tokyo (jp-tok)",
+                    "value": "jp-tok"
+                  },
+                  {
+                    "displayname": "Frankfurt (eu-de)",
+                    "value": "eu-de"
+                  },
+                  {
+                    "displayname": "London (eu-gb)",
+                    "value": "eu-gb"
+                  },
+                  {
+                    "displayname": "Madrid (eu-es)",
+                    "value": "eu-es"
+                  },
+                  {
+                    "displayname": "Dallas (us-south)",
+                    "value": "us-south"
+                  },
+                  {
+                    "displayname": "Toronto (ca-tor)",
+                    "value": "ca-tor"
+                  },
+                  {
+                    "displayname": "Washington DC (us-east)",
+                    "value": "us-east"
+                  },
+                  {
+                    "displayname": "Sao Paolo (br-sao)",
+                    "value": "br-sao"
+                  }
+                ]
               },
               {
                 "key": "prefix",
@@ -97,7 +130,65 @@
                 "key": "subscription_id_secret_crn"
               },
               {
-                "key": "node_type"
+                "key": "node_type",
+                "options": [
+                  {
+                    "displayname": "bx2.1x4",
+                    "value": "nil"
+                  },
+                  {
+                    "displayname": "bx2.4x16",
+                    "value": "bx2.4x16"
+                  },
+                  {
+                    "displayname": "bx2.8x32",
+                    "value": "bx2.8x32"
+                  },
+                  {
+                    "displayname": "bx2.16x64",
+                    "value": "bx2.16x64"
+                  },
+                  {
+                    "displayname": "bx2.32x128",
+                    "value": "bx2.32x128"
+                  },
+                  {
+                    "displayname": "bx2.48x192",
+                    "value": "bx2.48x192"
+                  },
+                  {
+                    "displayname": "mx2.4x32",
+                    "value": "mx2.4x32"
+                  },
+                  {
+                    "displayname": "mx2.16x128",
+                    "value": "mx2.16x128"
+                  },
+                  {
+                    "displayname": "mx2.128x1024",
+                    "value": "mx2.128x1024"
+                  }
+                ]
+              },
+              {
+                "key": "service_endpoints",
+                "options": [
+                  {
+                    "displayname": "Public",
+                    "value": "public"
+                  },
+                  {
+                    "displayname": "Private",
+                    "value": "private"
+                  },
+                  {
+                    "displayname": "Public and Private",
+                    "value": "public-and-private"
+                  }
+                ]
+              },
+              {
+                "key": "enable_high_availability"
               },
               {
                 "key": "enable_oracle_compatibility"

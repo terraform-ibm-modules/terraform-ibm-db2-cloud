@@ -6,7 +6,7 @@ Update status and "latest release" badges:
   1. For the status options, see https://terraform-ibm-modules.github.io/documentation/#/badge-status
   2. Update the "latest release" badge to point to the correct module's repo. Replace "terraform-ibm-module-template" in two places.
 -->
-[![Incubating (Not yet consumable)](https://img.shields.io/badge/status-Incubating%20(Not%20yet%20consumable)-red)](https://terraform-ibm-modules.github.io/documentation/#/badge-status)
+[![Stable (With quality checks)](https://img.shields.io/badge/Status-Stable%20(With%20quality%20checks)-green)](https://terraform-ibm-modules.github.io/documentation/#/badge-status)
 [![latest release](https://img.shields.io/github/v/release/terraform-ibm-modules/terraform-ibm-db2-cloud?logo=GitHub&sort=semver)](https://github.com/terraform-ibm-modules/terraform-ibm-db2-cloud/releases/latest)
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
 [![Renovate enabled](https://img.shields.io/badge/renovate-enabled-brightgreen.svg)](https://renovatebot.com/)
@@ -39,8 +39,8 @@ If this repo contains any reference architectures, uncomment the heading below a
 See "Reference architecture" in the public documentation at
 https://terraform-ibm-modules.github.io/documentation/#/implementation-guidelines?id=reference-architecture
 -->
-<!-- ## Reference architectures -->
-
+## Reference architectures
+![db2-cloud](https://raw.githubusercontent.com/terraform-ibm-modules/terraform-ibm-db2-cloud/000066a70c717a4e443d8508ca723b73c0c5361f/reference-architectures/deployable-architecture-db2cloud.svg)
 
 <!-- Replace this heading with the name of the root level module (the repo name) -->
 ## terraform-ibm-db2-cloud
@@ -55,7 +55,16 @@ unless real values don't help users know what to change.
 -->
 
 ```hcl
-
+module "db2" {
+  source                      = "terraform-ibm-modules/db2-cloud/ibm"
+  db2_instance_name           = "my-db2-instance"
+  resource_group_id           = "asdf1234"
+  service_endpoints           = "public-and-private"
+  enable_high_availability    = true
+  enable_oracle_compatibility = false
+  node_type                   = "bx2.4x16"
+  tags                        = ["tag1", "tag2"]
+}
 ```
 
 ### Required access policies
@@ -71,24 +80,12 @@ console at Manage > Access (IAM) > Access groups and click into an existing grou
 (or create a new one) and in the 'Access' tab click 'Assign access'.
 -->
 
-<!--
 You need the following permissions to run this module:
 
 - Service
-    - **Resource group only**
-        - `Viewer` access on the specific resource group
-    - **Sample IBM Cloud** service
+    - **dashdb-for-transactions** service
         - `Editor` platform access
         - `Manager` service access
--->
-
-<!-- NO PERMISSIONS FOR MODULE
-If no permissions are required for the module, uncomment the following
-statement instead the previous block.
--->
-
-<!-- No permissions are needed to run this module.-->
-
 
 <!-- The following content is automatically populated by the pre-commit hook -->
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
@@ -117,7 +114,7 @@ No modules.
 | <a name="input_db2_instance_name"></a> [db2\_instance\_name](#input\_db2\_instance\_name) | Name to give to the DB2 instance being provisioned | `string` | n/a | yes |
 | <a name="input_enable_high_availability"></a> [enable\_high\_availability](#input\_enable\_high\_availability) | Whether to enable high availability on the DB2 instance | `bool` | `false` | no |
 | <a name="input_enable_oracle_compatibility"></a> [enable\_oracle\_compatibility](#input\_enable\_oracle\_compatibility) | Whether to enable Oracle compatibility on the DB2 instance | `bool` | `false` | no |
-| <a name="input_node_type"></a> [node\_type](#input\_node\_type) | The node type of the DB2 instance, supported values are `bx2.4x16`, `bx2.8x32`, `bx2.16x64`, `bx2.32.128`, `bx2.48x192`, `mx2.4x32`, `mx2.16x128`, or `mx2.128x1024` | `string` | `"bx2.4x16"` | no |
+| <a name="input_node_type"></a> [node\_type](#input\_node\_type) | The node type of the DB2 instance, supported values are `nil`, `bx2.4x16`, `bx2.8x32`, `bx2.16x64`, `bx2.32.128`, `bx2.48x192`, `mx2.4x32`, `mx2.16x128`, or `mx2.128x1024` | `string` | `"bx2.4x16"` | no |
 | <a name="input_region"></a> [region](#input\_region) | Region to provision the DB2 instance | `string` | `"us-south"` | no |
 | <a name="input_resource_group_id"></a> [resource\_group\_id](#input\_resource\_group\_id) | ID of resource group to provision DB2 instance in | `string` | n/a | yes |
 | <a name="input_service_endpoints"></a> [service\_endpoints](#input\_service\_endpoints) | Service endpoints for the DB2 instance, valid values are `public`, `private`, or `public-and-private` | `string` | `"public"` | no |
