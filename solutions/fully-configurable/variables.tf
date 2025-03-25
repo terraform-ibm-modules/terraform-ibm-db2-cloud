@@ -38,8 +38,9 @@ variable "prefix" {
 
 variable "existing_resource_group_name" {
   type        = string
-  description = "The name of an existing resource group in which to provision key management resources to."
+  description = "The name of an existing resource group in which to provision DB2 resources to."
   default     = "Default"
+  nullable    = false
 }
 
 variable "service_endpoints" {
