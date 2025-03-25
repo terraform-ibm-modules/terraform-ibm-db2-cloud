@@ -39,7 +39,7 @@ variable "prefix" {
 variable "existing_resource_group_name" {
   type        = string
   description = "The name of an existing resource group in which to provision key management resources to."
-  nullable    = false
+  default     = "Default"
 }
 
 variable "service_endpoints" {
