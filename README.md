@@ -57,7 +57,7 @@ unless real values don't help users know what to change.
 ```hcl
 module "db2" {
   source                      = "terraform-ibm-modules/db2-cloud/ibm"
-  version                     = "1.0.0"
+  version = "X.Y.Z" # Replace "X.Y.Z" with a release version to lock into a specific release
   db2_instance_name           = "my-db2-instance"
   resource_group_id           = "asdf1234"
   service_endpoints           = "public-and-private"
