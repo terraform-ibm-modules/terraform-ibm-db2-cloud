@@ -57,7 +57,7 @@ unless real values don't help users know what to change.
 ```hcl
 module "db2" {
   source                      = "terraform-ibm-modules/db2-cloud/ibm"
-  version = "X.Y.Z" # Replace "X.Y.Z" with a release version to lock into a specific release
+  version                     = "X.Y.Z" # Replace "X.Y.Z" with a release version to lock into a specific release
   db2_instance_name           = "my-db2-instance"
   resource_group_id           = "asdf1234"
   service_endpoints           = "public-and-private"
@@ -95,7 +95,7 @@ You need the following permissions to run this module:
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.3.0 |
-| <a name="requirement_ibm"></a> [ibm](#requirement\_ibm) | >= 1.72.1, < 2.0.0 |
+| <a name="requirement_ibm"></a> [ibm](#requirement\_ibm) | >= 1.73.0, < 2.0.0 |
 
 ### Modules
 
@@ -106,7 +106,6 @@ No modules.
 | Name | Type |
 |------|------|
 | [ibm_db2.db2](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/db2) | resource |
-| [ibm_resource_tag.tags](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/resource_tag) | resource |
 
 ### Inputs
 
