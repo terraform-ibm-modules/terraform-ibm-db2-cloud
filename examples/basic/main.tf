@@ -21,6 +21,6 @@ module "db2_instance" {
   service_endpoints           = "public-and-private"
   enable_high_availability    = false
   enable_oracle_compatibility = false
-  node_type                   = "nil"
+  node_type                   = "bx2.1x4"
   tags                        = var.resource_tags
 }
