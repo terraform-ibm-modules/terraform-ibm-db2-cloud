@@ -55,7 +55,7 @@ variable "enable_oracle_compatibility" {
 
 variable "node_type" {
   type        = string
-  description = "The node type of the DB2 instance, supported values are `nil`, `bx2.4x16`, `bx2.8x32`, `bx2.16x64`, `bx2.32.128`, `bx2.48x192`, `mx2.4x32`, `mx2.16x128`, or `mx2.128x1024`"
+  description = "The node type of the DB2 instance, supported values are `bx2.1x4`, `bx2.4x16`, `bx2.8x32`, `bx2.16x64`, `bx2.32.128`, `bx2.48x192`, `mx2.4x32`, `mx2.16x128`, or `mx2.128x1024`"
   default     = "bx2.4x16"
 
   validation {
