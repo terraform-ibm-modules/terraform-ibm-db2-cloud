@@ -21,6 +21,6 @@ module "db2_instance" {
   service_endpoints           = var.service_endpoints
   enable_high_availability    = true
   enable_oracle_compatibility = var.oracle_compatibility
-  node_type                   = "nil"
+  node_type                   = "bx2.1x4"
   tags                        = var.resource_tags
 }

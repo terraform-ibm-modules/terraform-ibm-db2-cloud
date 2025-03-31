@@ -23,6 +23,11 @@ variable "region" {
   type        = string
   description = "Region to provision the DB2 instance"
   default     = "us-south"
+
+  validation {
+    condition     = contains(["au-syd", "jp-tok", "eu-de", "eu-gb", "eu-es", "us-south", "ca-tor", "us-east", "br-sao"], var.region)
+    error_message = "Invalid value for `region`, valid values are: `au-syd`, `jp-tok`, `eu-de`, `eu-gb`, `eu-es`, `us-south`, `ca-tor`, `us-east`, `br-sao`"
+  }
 }
 
 variable "service_endpoints" {
@@ -50,12 +55,12 @@ variable "enable_oracle_compatibility" {
 
 variable "node_type" {
   type        = string
-  description = "The node type of the DB2 instance, supported values are `bx2.4x16`, `bx2.8x32`, `bx2.16x64`, `bx2.32.128`, `bx2.48x192`, `mx2.4x32`, `mx2.16x128`, or `mx2.128x1024`"
+  description = "The node type of the DB2 instance, supported values are `bx2.1x4`, `bx2.4x16`, `bx2.8x32`, `bx2.16x64`, `bx2.32.128`, `bx2.48x192`, `mx2.4x32`, `mx2.16x128`, or `mx2.128x1024`"
   default     = "bx2.4x16"
 
   validation {
-    error_message = "`node_type` must be one of: `nil`, `bx2.4x16`, `bx2.8x32`, `bx2.16x64`, `bx2.32x128`, `bx2.48x192`, `mx2.4x32`, `mx2.16x128`, `mx2.128x1024`"
-    condition     = contains(["nil", "bx2.4x16", "bx2.8x32", "bx2.16x64", "bx2.32x128", "bx2.48x192", "mx2.4x32", "mx2.16x128", "mx2.128x1024"], var.node_type)
+    error_message = "`node_type` must be one of: `bx2.1x4`, `bx2.4x16`, `bx2.8x32`, `bx2.16x64`, `bx2.32x128`, `bx2.48x192`, `mx2.4x32`, `mx2.16x128`, `mx2.128x1024`"
+    condition     = contains(["bx2.1x4", "bx2.4x16", "bx2.8x32", "bx2.16x64", "bx2.32x128", "bx2.48x192", "mx2.4x32", "mx2.16x128", "mx2.128x1024"], var.node_type)
   }
 }
 
