@@ -25,7 +25,7 @@ This solution supports provisioning and configuring the following infrastructure
 |------|--------|---------|
 | <a name="module_crn_parser_subid"></a> [crn\_parser\_subid](#module\_crn\_parser\_subid) | terraform-ibm-modules/common-utilities/ibm//modules/crn-parser | 1.1.0 |
 | <a name="module_db2_instance"></a> [db2\_instance](#module\_db2\_instance) | ../.. | n/a |
-| <a name="module_resource_group"></a> [resource\_group](#module\_resource\_group) | terraform-ibm-modules/resource-group/ibm | 1.1.6 |
+| <a name="module_resource_group"></a> [resource\_group](#module\_resource\_group) | terraform-ibm-modules/resource-group/ibm | 1.2.0 |
 
 ### Resources
 
