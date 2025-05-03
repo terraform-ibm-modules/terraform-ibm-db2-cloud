@@ -17,7 +17,7 @@ This solution supports provisioning and configuring the following infrastructure
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.3.0 |
-| <a name="requirement_ibm"></a> [ibm](#requirement\_ibm) | 1.77.1 |
+| <a name="requirement_ibm"></a> [ibm](#requirement\_ibm) | 1.78.0 |
 
 ### Modules
 
@@ -31,7 +31,7 @@ This solution supports provisioning and configuring the following infrastructure
 
 | Name | Type |
 |------|------|
-| [ibm_sm_arbitrary_secret.sm_subscription_id](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.77.1/docs/data-sources/sm_arbitrary_secret) | data source |
+| [ibm_sm_arbitrary_secret.sm_subscription_id](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.78.0/docs/data-sources/sm_arbitrary_secret) | data source |
 
 ### Inputs
 
