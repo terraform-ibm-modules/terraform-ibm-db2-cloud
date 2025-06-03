@@ -4,7 +4,7 @@
 
 module "resource_group" {
   source                       = "terraform-ibm-modules/resource-group/ibm"
-  version                      = "1.1.6"
+  version                      = "1.2.0"
   existing_resource_group_name = var.existing_resource_group_name
 }
 
@@ -39,8 +39,8 @@ module "db2_instance" {
   db2_instance_name           = try("${local.prefix}-${var.db2_instance_name}", var.db2_instance_name)
   subscription_id             = local.subscription_id
   resource_group_id           = module.resource_group.resource_group_id
-  service_endpoints           = "private"
-  enable_high_availability    = true
+  service_endpoints           = var.service_endpoints
+  enable_high_availability    = var.enable_high_availability
   enable_oracle_compatibility = var.enable_oracle_compatibility
   node_type                   = var.node_type
   tags                        = var.resource_tags
