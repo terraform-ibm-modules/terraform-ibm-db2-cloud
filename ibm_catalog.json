@@ -1,8 +1,8 @@
 {
   "products": [
     {
-      "name": "deploy-arch-ibm-db2-cloud",
-      "label": "Cloud automation for DB2 on Cloud",
+      "name": "testing-deploy-arch-ibm-db2-cloud",
+      "label": "[Add-ons Beta] Cloud automation for DB2 on Cloud",
       "product_kind": "solution",
       "tags": [
         "ibm_created",
