@@ -21,7 +21,7 @@ variable "provider_visibility" {
 
 variable "region" {
   type        = string
-  description = "Region to provision all resources created by this example"
+  description = "The region to provision all resources in. [Learn more](https://terraform-ibm-modules.github.io/documentation/#/region) about how to select different regions for different services."
   default     = "us-east"
 
   validation {
@@ -33,7 +33,6 @@ variable "region" {
 variable "prefix" {
   type        = string
   description = "The prefix to add to all resources that this solution creates. To not use any prefix value, you can set this value to `null` or an empty string."
-  nullable    = true
 }
 
 variable "existing_resource_group_name" {
@@ -63,6 +62,7 @@ variable "resource_tags" {
 variable "db2_instance_name" {
   type        = string
   description = "The name of the DB2 instance"
+  default     = "db2"
 }
 
 variable "subscription_id" {

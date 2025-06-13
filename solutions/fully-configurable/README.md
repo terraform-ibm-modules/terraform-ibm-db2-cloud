@@ -37,7 +37,7 @@ This solution supports provisioning and configuring the following infrastructure
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_db2_instance_name"></a> [db2\_instance\_name](#input\_db2\_instance\_name) | The name of the DB2 instance | `string` | n/a | yes |
+| <a name="input_db2_instance_name"></a> [db2\_instance\_name](#input\_db2\_instance\_name) | The name of the DB2 instance | `string` | `"db2"` | no |
 | <a name="input_enable_high_availability"></a> [enable\_high\_availability](#input\_enable\_high\_availability) | Whether to enable high availability on the DB2 instance | `bool` | `true` | no |
 | <a name="input_enable_oracle_compatibility"></a> [enable\_oracle\_compatibility](#input\_enable\_oracle\_compatibility) | Whether to enable Oracle compatibility on the DB2 instance | `bool` | `false` | no |
 | <a name="input_existing_resource_group_name"></a> [existing\_resource\_group\_name](#input\_existing\_resource\_group\_name) | The name of an existing resource group in which to provision DB2 resources to. | `string` | `"Default"` | no |
@@ -45,7 +45,7 @@ This solution supports provisioning and configuring the following infrastructure
 | <a name="input_node_type"></a> [node\_type](#input\_node\_type) | The node type of the DB2 instance, valid values are `bx2.1x4`, `bx2.4x16`, `bx2.8x32`, `bx2.16x64`, `bx2.32x128`, `bx2.48x192`, `mx2.4x32`, `mx2.16x128`, `mx2.128x1024` | `string` | `"bx2.4x16"` | no |
 | <a name="input_prefix"></a> [prefix](#input\_prefix) | The prefix to add to all resources that this solution creates. To not use any prefix value, you can set this value to `null` or an empty string. | `string` | n/a | yes |
 | <a name="input_provider_visibility"></a> [provider\_visibility](#input\_provider\_visibility) | Set the visibility value for the IBM terraform provider. Supported values are `public`, `private`, `public-and-private`. [Learn more](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/guides/custom-service-endpoints). | `string` | `"private"` | no |
-| <a name="input_region"></a> [region](#input\_region) | Region to provision all resources created by this example | `string` | `"us-east"` | no |
+| <a name="input_region"></a> [region](#input\_region) | The region to provision all resources in. [Learn more](https://terraform-ibm-modules.github.io/documentation/#/region) about how to select different regions for different services. | `string` | `"us-east"` | no |
 | <a name="input_resource_tags"></a> [resource\_tags](#input\_resource\_tags) | Optional list of tags to be added to created resources | `list(string)` | `[]` | no |
 | <a name="input_service_endpoints"></a> [service\_endpoints](#input\_service\_endpoints) | Service endpoints for the DB2 instance, valid values are `public`, `private`, or `public-and-private` | `string` | `"private"` | no |
 | <a name="input_subscription_id"></a> [subscription\_id](#input\_subscription\_id) | Value of the subscription ID to use with the subscription plan of DB2 | `string` | `null` | no |
@@ -58,4 +58,5 @@ This solution supports provisioning and configuring the following infrastructure
 | <a name="output_crn"></a> [crn](#output\_crn) | CRN of the DB2 instance |
 | <a name="output_dashboard_url"></a> [dashboard\_url](#output\_dashboard\_url) | Dashboard URL of the DB2 instance |
 | <a name="output_name"></a> [name](#output\_name) | Name of the DB2 instance |
+| <a name="output_resource_group_name"></a> [resource\_group\_name](#output\_resource\_group\_name) | Resource group name where DB2 instance is created |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
