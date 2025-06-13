@@ -82,9 +82,8 @@
                   "reference_version": true
                 },
                 {
-                  "dependency_input": "region",
-                  "version_input": "region",
-                  "reference_version": true
+                  "value": "us-south",
+                  "dependency_input": "region"
                 }
               ],
               "optional": true,
@@ -110,11 +109,6 @@
                 {
                   "dependency_output": "workload_resource_group_name",
                   "version_input": "existing_resource_group_name"
-                },
-                {
-                  "dependency_input": "provider_visibility",
-                  "version_input": "provider_visibility",
-                  "reference_version": true
                 }
               ],
               "optional": true,
@@ -148,7 +142,7 @@
             },
             {
               "key": "existing_resource_group_name",
-              "display_name": "Resource group",
+              "display_name": "resource_group",
               "required": true,
               "custom_config": {
                 "type": "resource_group",
@@ -277,7 +271,14 @@
               "key": "enable_high_availability"
             },
             {
-              "key": "resource_tags"
+              "key": "resource_tags",
+              "custom_config": {
+                "grouping": "deployment",
+                "original_grouping": "deployment",
+                "config_constraints": {
+                  "type": "string"
+                }
+              }
             },
             {
               "key": "enable_oracle_compatibility"
