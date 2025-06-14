@@ -17,21 +17,21 @@ This solution supports provisioning and configuring the following infrastructure
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.3.0 |
-| <a name="requirement_ibm"></a> [ibm](#requirement\_ibm) | 1.78.3 |
+| <a name="requirement_ibm"></a> [ibm](#requirement\_ibm) | 1.79.2 |
 
 ### Modules
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_crn_parser_subid"></a> [crn\_parser\_subid](#module\_crn\_parser\_subid) | terraform-ibm-modules/common-utilities/ibm//modules/crn-parser | 1.1.0 |
+| <a name="module_crn_parser_subid"></a> [crn\_parser\_subid](#module\_crn\_parser\_subid) | terraform-ibm-modules/common-utilities/ibm//modules/crn-parser | 1.2.0 |
 | <a name="module_db2_instance"></a> [db2\_instance](#module\_db2\_instance) | ../.. | n/a |
-| <a name="module_resource_group"></a> [resource\_group](#module\_resource\_group) | terraform-ibm-modules/resource-group/ibm | 1.2.0 |
+| <a name="module_resource_group"></a> [resource\_group](#module\_resource\_group) | terraform-ibm-modules/resource-group/ibm | 1.2.1 |
 
 ### Resources
 
 | Name | Type |
 |------|------|
-| [ibm_sm_arbitrary_secret.sm_subscription_id](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.78.3/docs/data-sources/sm_arbitrary_secret) | data source |
+| [ibm_sm_arbitrary_secret.sm_subscription_id](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.79.2/docs/data-sources/sm_arbitrary_secret) | data source |
 
 ### Inputs
 
