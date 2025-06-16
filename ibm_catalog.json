@@ -242,6 +242,9 @@
               "key": "subscription_id_secret_crn"
             },
             {
+              "key": "sm_ibmcloud_api_key"
+            },
+            {
               "key": "node_type",
               "options": [
                 {

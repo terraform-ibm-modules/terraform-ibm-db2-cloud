@@ -48,6 +48,7 @@ This solution supports provisioning and configuring the following infrastructure
 | <a name="input_region"></a> [region](#input\_region) | The region to provision all resources in. [Learn more](https://terraform-ibm-modules.github.io/documentation/#/region) about how to select different regions for different services. | `string` | `"us-east"` | no |
 | <a name="input_resource_tags"></a> [resource\_tags](#input\_resource\_tags) | Optional list of tags to be added to created resources | `list(string)` | `[]` | no |
 | <a name="input_service_endpoints"></a> [service\_endpoints](#input\_service\_endpoints) | Service endpoints for the DB2 instance, valid values are `public`, `private`, or `public-and-private` | `string` | `"private"` | no |
+| <a name="input_sm_ibmcloud_api_key"></a> [sm\_ibmcloud\_api\_key](#input\_sm\_ibmcloud\_api\_key) | API key to authenticate on Secrets Manager instance. If null the ibmcloud\_api\_key will be used. | `string` | `null` | no |
 | <a name="input_subscription_id"></a> [subscription\_id](#input\_subscription\_id) | Value of the subscription ID to use with the subscription plan of DB2 | `string` | `null` | no |
 | <a name="input_subscription_id_secret_crn"></a> [subscription\_id\_secret\_crn](#input\_subscription\_id\_secret\_crn) | CRN of the secret which contains the subscription ID to use the subscription plan of DB2 | `string` | `null` | no |
 
