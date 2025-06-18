@@ -24,9 +24,10 @@ data "ibm_sm_arbitrary_secret" "sm_subscription_id" {
 }
 
 locals {
-  sm_region       = var.subscription_id_secret_crn != null ? module.crn_parser_subid[0].region : ""
-  subscription_id = var.subscription_id_secret_crn != null ? data.ibm_sm_arbitrary_secret.sm_subscription_id[0].payload : (var.subscription_id != null ? var.subscription_id : null)
-  prefix          = var.prefix != null ? (var.prefix != "" ? var.prefix : null) : null
+  sm_region           = var.subscription_id_secret_crn != null ? module.crn_parser_subid[0].region : ""
+  sm_ibmcloud_api_key = var.secrets_manager_ibmcloud_api_key == null ? var.ibmcloud_api_key : var.secrets_manager_ibmcloud_api_key
+  subscription_id     = var.subscription_id_secret_crn != null ? data.ibm_sm_arbitrary_secret.sm_subscription_id[0].payload : (var.subscription_id != null ? var.subscription_id : null)
+  prefix              = var.prefix != null ? trimspace(var.prefix) != "" ? "${var.prefix}-" : "" : ""
 }
 
 ########################################################################################################################
@@ -36,7 +37,7 @@ locals {
 module "db2_instance" {
   source                      = "../.."
   region                      = var.region
-  db2_instance_name           = try("${local.prefix}-${var.db2_instance_name}", var.db2_instance_name)
+  db2_instance_name           = "${local.prefix}${var.db2_instance_name}"
   subscription_id             = local.subscription_id
   resource_group_id           = module.resource_group.resource_group_id
   service_endpoints           = var.service_endpoints
