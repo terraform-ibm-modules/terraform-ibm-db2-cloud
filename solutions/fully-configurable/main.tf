@@ -25,7 +25,7 @@ data "ibm_sm_arbitrary_secret" "sm_subscription_id" {
 
 locals {
   sm_region           = var.subscription_id_secret_crn != null ? module.crn_parser_subid[0].region : ""
-  sm_ibmcloud_api_key = var.sm_ibmcloud_api_key == null ? var.ibmcloud_api_key : var.sm_ibmcloud_api_key
+  sm_ibmcloud_api_key = var.secrets_manager_ibmcloud_api_key == null ? var.ibmcloud_api_key : var.secrets_manager_ibmcloud_api_key
   subscription_id     = var.subscription_id_secret_crn != null ? data.ibm_sm_arbitrary_secret.sm_subscription_id[0].payload : (var.subscription_id != null ? var.subscription_id : null)
   prefix              = var.prefix != null ? trimspace(var.prefix) != "" ? "${var.prefix}-" : "" : ""
 }
