@@ -32,7 +32,7 @@ variable "region" {
 
   validation {
     condition     = contains(["au-syd", "jp-tok", "eu-de", "eu-gb", "eu-es", "us-south", "ca-tor", "us-east", "br-sao"], var.region)
-    error_message = "Invalid value for `region`, valid values are: `au-syd`, `jp-tok`, `eu-de`, `eu-gb`, `eu-es`, `us-south`, `ca-tor`, `us-east`, `br-sao`"
+    error_message = "Invalid value for `region`, valid values for DB2 on cloud offering are: `au-syd`, `jp-tok`, `eu-de`, `eu-gb`, `eu-es`, `us-south`, `ca-tor`, `us-east`, `br-sao`"
   }
 }
 

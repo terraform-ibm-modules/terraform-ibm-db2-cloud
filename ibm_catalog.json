@@ -48,11 +48,10 @@
             }
           ],
           "architecture": {
-            "descriptions": "This architecture supports creating and configuring an DB2 on Cloud instance.",
             "features": [
               {
-                "title": "Creates a DB2 on Cloud instance.",
-                "description": "Creates and configures a DB2 on Cloud instance."
+                "title": " ",
+                "description": "Configured to use IBM secure by default standards, but can be edited to fit your use case."
               }
             ],
             "diagrams": [
@@ -92,8 +91,9 @@
                   "reference_version": true
                 },
                 {
-                  "value": "us-south",
-                  "dependency_input": "region"
+                  "dependency_input": "region",
+                  "version_input": "region",
+                  "reference_version": true
                 }
               ],
               "optional": true,
