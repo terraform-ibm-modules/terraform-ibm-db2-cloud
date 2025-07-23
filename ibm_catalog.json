@@ -10,9 +10,9 @@
         "terraform",
         "solution",
         "integration",
+        "enterprise_app",
         "application_modernization",
-        "converged_infra",
-        "enterprise_app"
+        "converged_infra"
       ],
       "keywords": [
         "DB2",
