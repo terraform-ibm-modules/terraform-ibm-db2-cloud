@@ -6,11 +6,13 @@
       "product_kind": "solution",
       "tags": [
         "ibm_created",
-        "integration",
         "target_terraform",
         "terraform",
         "solution",
-        "application_modernization"
+        "integration",
+        "application_modernization",
+        "converged_infra",
+        "enterprise_app"
       ],
       "keywords": [
         "DB2",
@@ -317,7 +319,8 @@
             {
               "key": "enable_oracle_compatibility"
             }
-          ]
+          ],
+          "terraform_version": "1.10.5"
         }
       ]
     }
