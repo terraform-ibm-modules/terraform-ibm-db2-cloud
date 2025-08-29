@@ -4,7 +4,6 @@ package test
 import (
 	"fmt"
 	"testing"
-	"time"
 
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
@@ -130,11 +129,8 @@ func TestDefaultConfiguration(t *testing.T) {
 func TestDependencyPermutations(t *testing.T) {
 
 	options := testaddons.TestAddonsOptionsDefault(&testaddons.TestAddonOptions{
-		Testing:          t,
-		Prefix:           "db2-perm",
-		StaggerDelay:     testaddons.StaggerDelay(20 * time.Second),    // 20s delay between batches
-		StaggerBatchSize: testaddons.StaggerBatchSize(4),               // 4 tests per batch
-		WithinBatchDelay: testaddons.WithinBatchDelay(8 * time.Second), // 8s delay within batch
+		Testing: t,
+		Prefix:  "db2-perm",
 		AddonConfig: cloudinfo.AddonConfig{
 			OfferingName:   "deploy-arch-ibm-db2-cloud",
 			OfferingFlavor: "fully-configurable",
