@@ -6,6 +6,9 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
+	"github.com/terraform-ibm-modules/ibmcloud-terratest-wrapper/cloudinfo"
+	"github.com/terraform-ibm-modules/ibmcloud-terratest-wrapper/testaddons"
 	"github.com/terraform-ibm-modules/ibmcloud-terratest-wrapper/testhelper"
 	"github.com/terraform-ibm-modules/ibmcloud-terratest-wrapper/testschematic"
 )
@@ -96,4 +99,48 @@ func TestRunUpgradeDASchematics(t *testing.T) {
 	if !options.UpgradeTestSkipped {
 		assert.NoError(t, err, "Schematic Upgrade Test had an unexpected error")
 	}
+}
+
+func TestDefaultConfiguration(t *testing.T) {
+	t.Parallel()
+
+	options := testaddons.TestAddonsOptionsDefault(&testaddons.TestAddonOptions{
+		Testing:       t,
+		Prefix:        "db2deft",
+		ResourceGroup: resourceGroup,
+		QuietMode:     true, // Suppress logs except on failure
+	})
+
+	options.AddonConfig = cloudinfo.NewAddonConfigTerraform(
+		options.Prefix,
+		"deploy-arch-ibm-db2-cloud",
+		"fully-configurable",
+		map[string]interface{}{
+			"prefix":                       "db2deft",
+			"existing_resource_group_name": resourceGroup,
+		},
+	)
+
+	err := options.RunAddonTest()
+	require.NoError(t, err)
+}
+
+// TestDependencyPermutations runs dependency permutations for DB2 and all its dependencies
+func TestDependencyPermutations(t *testing.T) {
+
+	options := testaddons.TestAddonsOptionsDefault(&testaddons.TestAddonOptions{
+		Testing: t,
+		Prefix:  "db2-perm",
+		AddonConfig: cloudinfo.AddonConfig{
+			OfferingName:   "deploy-arch-ibm-db2-cloud",
+			OfferingFlavor: "fully-configurable",
+			Inputs: map[string]interface{}{
+				"prefix":                       "db2-perm",
+				"existing_resource_group_name": resourceGroup,
+			},
+		},
+	})
+
+	err := options.RunAddonPermutationTest()
+	assert.NoError(t, err, "Dependency permutation test should not fail")
 }
