@@ -21,7 +21,7 @@ variable "resource_group_id" {
 
 variable "region" {
   type        = string
-  description = "Region to provision the DB2 instance"
+  description = "Region to provision the DB2 instance in"
   default     = "us-south"
 
   validation {
