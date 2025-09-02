@@ -41,7 +41,7 @@
           "description": "Optionally, you can deploy Cloud automation for Cloud Monitoring to measure how users and applications interact with your DB2 instance. [Learn more](https://cloud.ibm.com/docs/db2-saas?topic=db2-saas-monitor)"
         },
         {
-          "title": "Sets up activity tracking for the Event Streams instance",
+          "title": "Sets up activity tracking for the DB2 instance",
           "description": "Optionally, you can deploy Cloud automation for Activity Tracker Event Routing to route and securely store auditing events that are related to your DB2 instance."
         }
       ],
