@@ -22,6 +22,8 @@ const solutionDir = "solutions/fully-configurable"
 // Service not available in all regions, hard-coding to us-east for time being
 const region = "us-east"
 
+var sharedInfoSvc *cloudinfo.CloudInfoService
+
 func setupOptions(t *testing.T, prefix string, dir string) *testhelper.TestOptions {
 	options := testhelper.TestOptionsDefaultWithVars(&testhelper.TestOptions{
 		Testing:       t,
@@ -104,11 +106,14 @@ func TestRunUpgradeDASchematics(t *testing.T) {
 
 func TestDefaultConfiguration(t *testing.T) {
 	t.Parallel()
+	sharedInfoSvc, _ = cloudinfo.NewCloudInfoServiceFromEnv("TF_VAR_ibmcloud_api_key", cloudinfo.CloudInfoServiceOptions{})
+	prefix := "db2deft"
+	uniqueResourceGroup := generateUniqueResourceGroupName(prefix)
 
 	options := testaddons.TestAddonsOptionsDefault(&testaddons.TestAddonOptions{
 		Testing:       t,
-		Prefix:        "db2deft",
-		ResourceGroup: resourceGroup,
+		Prefix:        prefix,
+		ResourceGroup: uniqueResourceGroup,
 		QuietMode:     true, // Suppress logs except on failure
 	})
 
@@ -117,13 +122,11 @@ func TestDefaultConfiguration(t *testing.T) {
 		"deploy-arch-ibm-db2-cloud",
 		"fully-configurable",
 		map[string]interface{}{
-			"prefix":                       "db2deft",
-			"existing_resource_group_name": resourceGroup,
+			"prefix":                       prefix,
+			"existing_resource_group_name": uniqueResourceGroup,
 		},
 	)
-	var sharedInfoSvc *cloudinfo.CloudInfoService
-	sharedInfoSvc, _ = cloudinfo.NewCloudInfoServiceFromEnv("TF_VAR_ibmcloud_api_key", cloudinfo.CloudInfoServiceOptions{})
-	uniqueResourceGroup := generateUniqueResourceGroupName(options.Prefix)
+
 	err := sharedInfoSvc.WithNewResourceGroup(uniqueResourceGroup, func() error {
 		return options.RunAddonTest()
 	})
