@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"testing"
 
+	"github.com/google/uuid"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"github.com/terraform-ibm-modules/ibmcloud-terratest-wrapper/cloudinfo"
@@ -120,8 +121,12 @@ func TestDefaultConfiguration(t *testing.T) {
 			"existing_resource_group_name": resourceGroup,
 		},
 	)
-
-	err := options.RunAddonTest()
+	var sharedInfoSvc *cloudinfo.CloudInfoService
+	sharedInfoSvc, _ = cloudinfo.NewCloudInfoServiceFromEnv("TF_VAR_ibmcloud_api_key", cloudinfo.CloudInfoServiceOptions{})
+	uniqueResourceGroup := generateUniqueResourceGroupName(options.Prefix)
+	err := sharedInfoSvc.WithNewResourceGroup(uniqueResourceGroup, func() error {
+		return options.RunAddonTest()
+	})
 	require.NoError(t, err)
 }
 
@@ -145,4 +150,9 @@ func TestDependencyPermutations(t *testing.T) {
 
 	err := options.RunAddonPermutationTest()
 	assert.NoError(t, err, "Dependency permutation test should not fail")
+}
+
+func generateUniqueResourceGroupName(baseName string) string {
+	id := uuid.New().String()[:8]
+	return fmt.Sprintf("%s-%s", baseName, id)
 }
