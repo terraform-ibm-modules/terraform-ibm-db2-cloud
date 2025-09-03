@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/google/uuid"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"github.com/terraform-ibm-modules/ibmcloud-terratest-wrapper/cloudinfo"
@@ -105,14 +104,11 @@ func TestRunUpgradeDASchematics(t *testing.T) {
 }
 
 func TestDefaultConfiguration(t *testing.T) {
-	sharedInfoSvc, _ = cloudinfo.NewCloudInfoServiceFromEnv("TF_VAR_ibmcloud_api_key", cloudinfo.CloudInfoServiceOptions{})
-	prefix := "db2deft"
-	uniqueResourceGroup := generateUniqueResourceGroupName(prefix)
 
 	options := testaddons.TestAddonsOptionsDefault(&testaddons.TestAddonOptions{
 		Testing:       t,
-		Prefix:        prefix,
-		ResourceGroup: uniqueResourceGroup,
+		Prefix:        "db2deft",
+		ResourceGroup: resourceGroup,
 		QuietMode:     true, // Suppress logs except on failure
 	})
 
@@ -121,14 +117,12 @@ func TestDefaultConfiguration(t *testing.T) {
 		"deploy-arch-ibm-db2-cloud",
 		"fully-configurable",
 		map[string]interface{}{
-			"prefix":                       prefix,
-			"existing_resource_group_name": uniqueResourceGroup,
+			"prefix":                       options.Prefix,
+			"existing_resource_group_name": resourceGroup,
 		},
 	)
 
-	err := sharedInfoSvc.WithNewResourceGroup(uniqueResourceGroup, func() error {
-		return options.RunAddonTest()
-	})
+	err := options.RunAddonTest()
 	require.NoError(t, err)
 }
 
@@ -152,9 +146,4 @@ func TestDependencyPermutations(t *testing.T) {
 
 	err := options.RunAddonPermutationTest()
 	assert.NoError(t, err, "Dependency permutation test should not fail")
-}
-
-func generateUniqueResourceGroupName(baseName string) string {
-	id := uuid.New().String()[:8]
-	return fmt.Sprintf("%s-%s", baseName, id)
 }
