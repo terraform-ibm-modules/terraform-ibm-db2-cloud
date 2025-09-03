@@ -21,8 +21,6 @@ const solutionDir = "solutions/fully-configurable"
 // Service not available in all regions, hard-coding to us-east for time being
 const region = "us-east"
 
-var sharedInfoSvc *cloudinfo.CloudInfoService
-
 func setupOptions(t *testing.T, prefix string, dir string) *testhelper.TestOptions {
 	options := testhelper.TestOptionsDefaultWithVars(&testhelper.TestOptions{
 		Testing:       t,
