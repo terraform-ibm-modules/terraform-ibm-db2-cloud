@@ -105,7 +105,6 @@ func TestRunUpgradeDASchematics(t *testing.T) {
 }
 
 func TestDefaultConfiguration(t *testing.T) {
-	t.Parallel()
 	sharedInfoSvc, _ = cloudinfo.NewCloudInfoServiceFromEnv("TF_VAR_ibmcloud_api_key", cloudinfo.CloudInfoServiceOptions{})
 	prefix := "db2deft"
 	uniqueResourceGroup := generateUniqueResourceGroupName(prefix)
