@@ -164,7 +164,7 @@
               ],
               "optional": true,
               "on_by_default": true,
-              "version": "v1.2.12"
+              "version": "v1.2.25"
             },
             {
               "name": "deploy-arch-ibm-scc-workload-protection",
@@ -188,7 +188,7 @@
               ],
               "optional": true,
               "on_by_default": true,
-              "version": "v1.11.1"
+              "version": "v1.11.4"
             },
             {
               "name": "deploy-arch-ibm-account-infra-base",
