@@ -98,6 +98,7 @@ func TestRunUpgradeDASchematics(t *testing.T) {
 	t.Parallel()
 
 	options := setupDAOptions(t, "db2-upg", solutionDir)
+	options.CheckApplyResultForUpgrade = true
 
 	err := options.RunSchematicUpgradeTest()
 	if !options.UpgradeTestSkipped {
