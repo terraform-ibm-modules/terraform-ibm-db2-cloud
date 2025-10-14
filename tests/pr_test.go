@@ -21,8 +21,8 @@ const solutionDir = "solutions/fully-configurable"
 
 const terraformVersion = "terraform_v1.10" // This should match the version in the ibm_catalog.json
 
-// Service not available in all regions, hard-coding to us-east for time being
-const region = "us-east"
+// Service not available in all regions, hard-coding to us-south for time being
+const region = "us-south"
 
 func setupOptions(t *testing.T, prefix string, dir string) *testhelper.TestOptions {
 	options := testhelper.TestOptionsDefaultWithVars(&testhelper.TestOptions{
