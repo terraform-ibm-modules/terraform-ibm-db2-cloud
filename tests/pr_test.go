@@ -122,6 +122,7 @@ func TestDefaultConfiguration(t *testing.T) {
 		map[string]interface{}{
 			"prefix":                       options.Prefix,
 			"existing_resource_group_name": resourceGroup,
+			"region":                       region,
 		},
 	)
 
