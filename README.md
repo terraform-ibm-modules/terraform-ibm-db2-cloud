@@ -111,23 +111,23 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_db2_instance_name"></a> [db2\_instance\_name](#input\_db2\_instance\_name) | Name to give to the DB2 instance being provisioned | `string` | n/a | yes |
-| <a name="input_enable_high_availability"></a> [enable\_high\_availability](#input\_enable\_high\_availability) | Whether to enable high availability on the DB2 instance | `bool` | `false` | no |
-| <a name="input_enable_oracle_compatibility"></a> [enable\_oracle\_compatibility](#input\_enable\_oracle\_compatibility) | Whether to enable Oracle compatibility on the DB2 instance | `bool` | `false` | no |
-| <a name="input_node_type"></a> [node\_type](#input\_node\_type) | The node type of the DB2 instance, supported values are `bx2.1x4`, `bx2.4x16`, `bx2.8x32`, `bx2.16x64`, `bx2.32.128`, `bx2.48x192`, `mx2.4x32`, `mx2.16x128`, or `mx2.128x1024` | `string` | `"bx2.4x16"` | no |
-| <a name="input_region"></a> [region](#input\_region) | Region to provision the DB2 instance | `string` | `"us-south"` | no |
-| <a name="input_resource_group_id"></a> [resource\_group\_id](#input\_resource\_group\_id) | ID of resource group to provision DB2 instance in | `string` | n/a | yes |
-| <a name="input_service_endpoints"></a> [service\_endpoints](#input\_service\_endpoints) | Service endpoints for the DB2 instance, valid values are `public`, `private`, or `public-and-private` | `string` | `"public"` | no |
-| <a name="input_subscription_id"></a> [subscription\_id](#input\_subscription\_id) | Value of the subscription ID to use with the subscription plan of DB2 | `string` | `null` | no |
-| <a name="input_tags"></a> [tags](#input\_tags) | Tags applied to the DB2 resource instance | `list(string)` | `[]` | no |
+| <a name="input_db2_instance_name"></a> [db2\_instance\_name](#input\_db2\_instance\_name) | The name of the Db2 instance to create. | `string` | n/a | yes |
+| <a name="input_enable_high_availability"></a> [enable\_high\_availability](#input\_enable\_high\_availability) | Whether to enable high availability for the Db2 instance. | `bool` | `false` | no |
+| <a name="input_enable_oracle_compatibility"></a> [enable\_oracle\_compatibility](#input\_enable\_oracle\_compatibility) | Whether to enable compatibility with Oracle for the Db2 instance. | `bool` | `false` | no |
+| <a name="input_node_type"></a> [node\_type](#input\_node\_type) | The node type of the Db2 instance. Possible values are `bx2.1x4`, `bx2.4x16`, `bx2.8x32`, `bx2.16x64`, `bx2.32.128`, `bx2.48x192`, `mx2.4x32`, `mx2.16x128`, or `mx2.128x1024`. | `string` | `"bx2.4x16"` | no |
+| <a name="input_region"></a> [region](#input\_region) | The region where the Db2 instance is created. | `string` | `"us-south"` | no |
+| <a name="input_resource_group_id"></a> [resource\_group\_id](#input\_resource\_group\_id) | The ID of the resource group that contains the Db2 instance. | `string` | n/a | yes |
+| <a name="input_service_endpoints"></a> [service\_endpoints](#input\_service\_endpoints) | Service endpoints for the Db2 instance. Possible values are `public`, `private`, or `public-and-private`. | `string` | `"public"` | no |
+| <a name="input_subscription_id"></a> [subscription\_id](#input\_subscription\_id) | Value of the subscription ID to use with the subscription plan for Db2. | `string` | `null` | no |
+| <a name="input_tags"></a> [tags](#input\_tags) | The list of resource tags to associate with your Db2 instance. | `list(string)` | `[]` | no |
 
 ### Outputs
 
 | Name | Description |
 |------|-------------|
-| <a name="output_crn"></a> [crn](#output\_crn) | CRN of the DB2 instance |
-| <a name="output_dashboard_url"></a> [dashboard\_url](#output\_dashboard\_url) | Dashboard URL of the DB2 instance |
-| <a name="output_name"></a> [name](#output\_name) | Name of the DB2 instance |
+| <a name="output_crn"></a> [crn](#output\_crn) | CRN of the Db2 instance. |
+| <a name="output_dashboard_url"></a> [dashboard\_url](#output\_dashboard\_url) | Dashboard URL of the Db2 instance. |
+| <a name="output_name"></a> [name](#output\_name) | Name of the Db2 instance. |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 <!-- Leave this section as is so that your module has a link to local development environment set-up steps for contributors to follow -->
