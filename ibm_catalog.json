@@ -190,7 +190,7 @@
               ],
               "optional": true,
               "on_by_default": true,
-              "version": "v1.6.4"
+              "version": "v1.7.2"
             },
             {
               "name": "deploy-arch-ibm-cloud-logs",
@@ -219,7 +219,7 @@
               ],
               "optional": true,
               "on_by_default": true,
-              "version": "v1.6.11"
+              "version": "v1.6.28"
             },
             {
               "name": "deploy-arch-ibm-activity-tracker",
@@ -243,7 +243,7 @@
               ],
               "optional": true,
               "on_by_default": true,
-              "version": "v1.2.25"
+              "version": "v1.2.34"
             },
             {
               "name": "deploy-arch-ibm-scc-workload-protection",
@@ -267,7 +267,7 @@
               ],
               "optional": true,
               "on_by_default": true,
-              "version": "v1.11.4"
+              "version": "v1.12.3"
             },
             {
               "name": "deploy-arch-ibm-account-infra-base",
@@ -292,7 +292,7 @@
               ],
               "optional": true,
               "on_by_default": false,
-              "version": "v3.0.7"
+              "version": "v3.0.23"
             }
           ],
           "dependency_version_2": true,

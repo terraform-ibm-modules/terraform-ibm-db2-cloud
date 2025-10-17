@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"testing"
 
+	"github.com/IBM/go-sdk-core/core"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"github.com/terraform-ibm-modules/ibmcloud-terratest-wrapper/cloudinfo"
@@ -18,8 +19,10 @@ const resourceGroup = "geretain-test-resources"
 const advancedExampleDir = "examples/advanced"
 const solutionDir = "solutions/fully-configurable"
 
-// Service not available in all regions, hard-coding to us-east for time being
-const region = "us-east"
+const terraformVersion = "terraform_v1.10" // This should match the version in the ibm_catalog.json
+
+// Service not available in all regions, hard-coding to us-south for time being
+const region = "us-south"
 
 func setupOptions(t *testing.T, prefix string, dir string) *testhelper.TestOptions {
 	options := testhelper.TestOptionsDefaultWithVars(&testhelper.TestOptions{
@@ -68,6 +71,7 @@ func setupDAOptions(t *testing.T, prefix string, dir string) *testschematic.Test
 		Tags:                   []string{"test-schematic"},
 		DeleteWorkspaceOnFail:  false,
 		WaitJobCompleteMinutes: 120,
+		TerraformVersion:       terraformVersion,
 	})
 
 	options.TerraformVars = []testschematic.TestSchematicTerraformVar{
@@ -94,6 +98,7 @@ func TestRunUpgradeDASchematics(t *testing.T) {
 	t.Parallel()
 
 	options := setupDAOptions(t, "db2-upg", solutionDir)
+	options.CheckApplyResultForUpgrade = true
 
 	err := options.RunSchematicUpgradeTest()
 	if !options.UpgradeTestSkipped {
@@ -117,31 +122,30 @@ func TestDefaultConfiguration(t *testing.T) {
 		map[string]interface{}{
 			"prefix":                       options.Prefix,
 			"existing_resource_group_name": resourceGroup,
+			"region":                       region,
 		},
 	)
 
-	err := options.RunAddonTest()
-	require.NoError(t, err)
-}
-
-// TestDependencyPermutations runs dependency permutations for DB2 and all its dependencies
-func TestDependencyPermutations(t *testing.T) {
-	t.Skip("Skipping dependency permutations")
-	t.Parallel()
-
-	options := testaddons.TestAddonsOptionsDefault(&testaddons.TestAddonOptions{
-		Testing: t,
-		Prefix:  "db2-perm",
-		AddonConfig: cloudinfo.AddonConfig{
-			OfferingName:   "deploy-arch-ibm-db2-cloud",
+	// Disable target / route creation to prevent hitting quota in account
+	options.AddonConfig.Dependencies = []cloudinfo.AddonConfig{
+		{
+			OfferingName:   "deploy-arch-ibm-cloud-monitoring",
 			OfferingFlavor: "fully-configurable",
 			Inputs: map[string]interface{}{
-				"prefix":                       "db2-perm",
-				"existing_resource_group_name": resourceGroup,
+				"enable_metrics_routing_to_cloud_monitoring": false,
 			},
+			Enabled: core.BoolPtr(true),
 		},
-	})
+		{
+			OfferingName:   "deploy-arch-ibm-activity-tracker",
+			OfferingFlavor: "fully-configurable",
+			Inputs: map[string]interface{}{
+				"enable_activity_tracker_event_routing_to_cloud_logs": false,
+			},
+			Enabled: core.BoolPtr(true),
+		},
+	}
 
-	err := options.RunAddonPermutationTest()
-	assert.NoError(t, err, "Dependency permutation test should not fail")
+	err := options.RunAddonTest()
+	require.NoError(t, err)
 }
