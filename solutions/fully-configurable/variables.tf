@@ -17,7 +17,7 @@ variable "secrets_manager_ibmcloud_api_key" {
 variable "provider_visibility" {
   description = "Set the visibility value for the IBM terraform provider. Supported values are `public`, `private`, `public-and-private`. [Learn more](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/guides/custom-service-endpoints)."
   type        = string
-  default     = "private"
+  default     = "public"
 
   validation {
     condition     = contains(["public", "private", "public-and-private"], var.provider_visibility)
@@ -103,6 +103,15 @@ variable "subscription_id_secret_crn" {
   type        = string
   description = "CRN of the secret which contains the subscription ID to use the subscription plan of DB2"
   default     = null
+
+  validation {
+    condition = anytrue([
+      can(regex("^crn:(.*:){3}secrets-manager:(.*:){2}[0-9a-fA-F]{8}(?:-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}:secret:[0-9a-fA-F]{8}(?:-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}$", var.subscription_id_secret_crn)),
+      var.subscription_id_secret_crn == null,
+    ])
+    error_message = "The value provided for 'subscription_id_secret_crn' is not valid."
+
+  }
 }
 
 variable "node_type" {
