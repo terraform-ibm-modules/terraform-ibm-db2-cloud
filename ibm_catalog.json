@@ -481,7 +481,7 @@
               "key": "enable_oracle_compatibility"
             }
           ],
-          "terraform_version": "1.10.5"
+          "terraform_version": "1.12.2"
         }
       ]
     }
