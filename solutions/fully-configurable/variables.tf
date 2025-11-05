@@ -106,7 +106,7 @@ variable "subscription_id_secret_crn" {
 
   validation {
     condition = anytrue([
-      can(regex("^crn:(.*:){3}secrets-manager:(.*:){2}[0-9a-fA-F]{8}(?:-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}:secret:[0-9a-fA-F]{8}(?:-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}$", var.subscription_id_secret_crn)),
+      can(regex("^crn:v\\d:(.*:){2}secrets-manager:(.*:)([aos]\\/[\\w_\\-]+):[0-9a-fA-F]{8}(?:-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}:secret:[0-9a-fA-F]{8}(?:-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}$", var.subscription_id_secret_crn)),
       var.subscription_id_secret_crn == null,
     ])
     error_message = "The value provided for 'subscription_id_secret_crn' is not valid."
