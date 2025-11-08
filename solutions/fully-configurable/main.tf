@@ -11,7 +11,7 @@ module "resource_group" {
 module "crn_parser_subid" {
   count   = var.subscription_id_secret_crn != null ? 1 : 0
   source  = "terraform-ibm-modules/common-utilities/ibm//modules/crn-parser"
-  version = "1.2.0"
+  version = "1.3.0"
   crn     = var.subscription_id_secret_crn
 }
 
