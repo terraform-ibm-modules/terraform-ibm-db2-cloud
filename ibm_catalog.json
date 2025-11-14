@@ -401,7 +401,14 @@
               "key": "subscription_id"
             },
             {
-              "key": "subscription_id_secret_crn"
+              "key": "subscription_id_secret_crn",
+              "value_constraints": [
+                {
+                  "type": "regex",
+                  "description": "The value provided for 'subscription_id_secret_crn' is not valid.",
+                  "value": "^__NULL__$|^crn:v\\d:(.*:){2}secrets-manager:(.*:)([aos]\\/[\\w_\\-]+):[0-9a-fA-F]{8}(?:-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}:secret:[0-9a-fA-F]{8}(?:-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}$"
+                }
+              ]
             },
             {
               "key": "secrets_manager_ibmcloud_api_key"
