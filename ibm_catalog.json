@@ -58,6 +58,7 @@
           "name": "fully-configurable",
           "install_type": "fullstack",
           "working_directory": "solutions/fully-configurable",
+          "short_description": "Ideal for users looking for fully managed, high performance transactional database for mission critical workloads.",
           "iam_permissions": [
             {
               "role_crns": [
