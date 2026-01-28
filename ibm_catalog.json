@@ -27,7 +27,6 @@
       "short_description": "Creates and configures an IBM Db2 as a Service instance.",
       "long_description": "IBM Db2 SaaS is a powerful, fully managed relational database service that offers scalability, high availability, security, and compatibility with existing applications, which makes it suitable for a wide range of enterprise workloads.  \n\nLeverage [Terraform IBM Modules](https://github.com/terraform-ibm-modules) to shape and scale your solutions. You can integrate Terraform IBM Modules (TIM) to extend functionality and design a solution tailored to your environment and operations needs. These modules offer reusable, customizable elements that follow IBM Cloud's recommended practices. You can access the [source code and documentation](https://github.com/terraform-ibm-modules/terraform-ibm-db2-cloud) and use it to extend your current architecture or create new solutions.\n\nℹ️ This deployable architecture is a part of a larger collection that IBM provides. Each deployable architecture focuses on a single IBM Cloud service. You can use these deployable architectures on their own to automate deployments by following an [IaC approach](https://cloud.ibm.com/docs/secure-enterprise?topic=secure-enterprise-understanding-projects), or you can [combine them together](https://cloud.ibm.com/docs/secure-enterprise?topic=secure-enterprise-config-stack) to deploy a more complex end-to-end solution architecture.",
       "offering_docs_url": "https://cloud.ibm.com/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-about-tim",
-      "release_notes_url": "https://github.com/terraform-ibm-modules/terraform-ibm-db2-cloud/releases",
       "offering_icon_url": "https://raw.githubusercontent.com/terraform-ibm-modules/terraform-ibm-db2-cloud/main/images/DB2.svg",
       "provider_name": "IBM",
       "features": [
@@ -59,6 +58,7 @@
           "name": "fully-configurable",
           "install_type": "fullstack",
           "working_directory": "solutions/fully-configurable",
+          "release_notes_url": "https://github.com/terraform-ibm-modules/terraform-ibm-db2-cloud/releases",
           "short_description": "Ideal for users looking for fully managed, high performance transactional database for mission critical workloads.",
           "iam_permissions": [
             {
