@@ -123,7 +123,7 @@ No modules.
 | <a name="input_resource_group_id"></a> [resource\_group\_id](#input\_resource\_group\_id) | The ID of the resource group that contains the Db2 instance. | `string` | n/a | yes |
 | <a name="input_service_endpoints"></a> [service\_endpoints](#input\_service\_endpoints) | Service endpoints for the Db2 instance. Possible values are `public`, `private`, or `public-and-private`. | `string` | `"public"` | no |
 | <a name="input_subscription_id"></a> [subscription\_id](#input\_subscription\_id) | Value of the subscription ID to use with the subscription plan for Db2. | `string` | `null` | no |
-| <a name="input_tags"></a> [tags](#input\_tags) | The list of resource tags to associate with your Db2 instance. | `list(string)` | `[]` | no |
+| <a name="input_tags"></a> [tags](#input\_tags) | Add user resource tags to the Db2 Cloud instance to organize, track, and manage costs. [Learn more](https://cloud.ibm.com/docs/account?topic=account-tag&interface=ui#tag-types). | `list(string)` | `[]` | no |
 
 ### Outputs
 
