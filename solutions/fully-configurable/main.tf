@@ -44,5 +44,5 @@ module "db2_instance" {
   enable_high_availability    = var.enable_high_availability
   enable_oracle_compatibility = var.enable_oracle_compatibility
   node_type                   = var.node_type
-  tags                        = var.resource_tags
+  resource_tags               = var.resource_tags
 }

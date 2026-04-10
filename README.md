@@ -135,9 +135,9 @@ No modules.
 | <a name="input_node_type"></a> [node\_type](#input\_node\_type) | The node type of the Db2 instance. Possible values are `bx2.1x4`, `bx2.4x16`, `bx2.8x32`, `bx2.16x64`, `bx2.32.128`, `bx2.48x192`, `mx2.4x32`, `mx2.16x128`, or `mx2.128x1024`. | `string` | `"bx2.4x16"` | no |
 | <a name="input_region"></a> [region](#input\_region) | The region where the Db2 instance is created. | `string` | `"us-south"` | no |
 | <a name="input_resource_group_id"></a> [resource\_group\_id](#input\_resource\_group\_id) | The ID of the resource group that contains the Db2 instance. | `string` | n/a | yes |
+| <a name="input_resource_tags"></a> [resource\_tags](#input\_resource\_tags) | Add user resource tags to the Db2 Cloud instance to organize, track, and manage costs. [Learn more](https://cloud.ibm.com/docs/account?topic=account-tag&interface=ui#tag-types). | `list(string)` | `[]` | no |
 | <a name="input_service_endpoints"></a> [service\_endpoints](#input\_service\_endpoints) | Service endpoints for the Db2 instance. Possible values are `public`, `private`, or `public-and-private`. | `string` | `"public"` | no |
 | <a name="input_subscription_id"></a> [subscription\_id](#input\_subscription\_id) | Value of the subscription ID to use with the subscription plan for Db2. | `string` | `null` | no |
-| <a name="input_tags"></a> [tags](#input\_tags) | The list of resource tags to associate with your Db2 instance. | `list(string)` | `[]` | no |
 
 ### Outputs
 
