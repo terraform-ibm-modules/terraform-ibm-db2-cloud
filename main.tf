@@ -13,7 +13,7 @@ resource "ibm_db2" "db2" {
   high_availability    = var.enable_high_availability ? "yes" : "no"
   oracle_compatibility = var.enable_oracle_compatibility ? "yes" : "no"
   subscription_id      = var.subscription_id
-  tags                 = var.tags
+  tags                 = var.resource_tags
 
   timeouts {
     create = "720m"
