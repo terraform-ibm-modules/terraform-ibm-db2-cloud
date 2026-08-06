@@ -112,7 +112,7 @@ func TestDefaultConfiguration(t *testing.T) {
 		Testing:       t,
 		Prefix:        "db2deft",
 		ResourceGroup: resourceGroup,
-		QuietMode:     true, // Suppress logs except on failure
+		QuietMode:     false, // Suppress logs except on failure
 	})
 
 	options.AddonConfig = cloudinfo.NewAddonConfigTerraform(
