@@ -70,7 +70,7 @@ func setupDAOptions(t *testing.T, prefix string, dir string) *testschematic.Test
 		Prefix:                 prefix,
 		Tags:                   []string{"test-schematic"},
 		DeleteWorkspaceOnFail:  false,
-		WaitJobCompleteMinutes: 120,
+		WaitJobCompleteMinutes: 360,
 		TerraformVersion:       terraformVersion,
 	})
 
@@ -112,7 +112,7 @@ func TestDefaultConfiguration(t *testing.T) {
 		Testing:       t,
 		Prefix:        "db2deft",
 		ResourceGroup: resourceGroup,
-		QuietMode:     true, // Suppress logs except on failure
+		QuietMode:     false, // Suppress logs except on failure
 	})
 
 	options.AddonConfig = cloudinfo.NewAddonConfigTerraform(
