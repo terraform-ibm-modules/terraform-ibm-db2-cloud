@@ -82,7 +82,7 @@ module "db2" {
   enable_high_availability    = true
   enable_oracle_compatibility = false
   node_type                   = "bx2.4x16"
-  tags                        = ["tag1", "tag2"]
+  resource_tags               = ["tag1", "tag2"]
 }
 ```
 
