@@ -111,7 +111,7 @@ You need the following permissions to run this module:
 ### Requirements
 
 | Name | Version |
-|------|---------|
+| ---- | ------- |
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.9.0 |
 | <a name="requirement_ibm"></a> [ibm](#requirement\_ibm) | >= 1.79.0, < 3.0.0 |
 
@@ -122,13 +122,13 @@ No modules.
 ### Resources
 
 | Name | Type |
-|------|------|
+| ---- | ---- |
 | [ibm_db2.db2](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/db2) | resource |
 
 ### Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
+| ---- | ----------- | ---- | ------- | :------: |
 | <a name="input_db2_instance_name"></a> [db2\_instance\_name](#input\_db2\_instance\_name) | The name of the Db2 instance to create. | `string` | n/a | yes |
 | <a name="input_enable_high_availability"></a> [enable\_high\_availability](#input\_enable\_high\_availability) | Whether to enable high availability for the Db2 instance. | `bool` | `false` | no |
 | <a name="input_enable_oracle_compatibility"></a> [enable\_oracle\_compatibility](#input\_enable\_oracle\_compatibility) | Whether to enable compatibility with Oracle for the Db2 instance. | `bool` | `false` | no |
@@ -142,7 +142,7 @@ No modules.
 ### Outputs
 
 | Name | Description |
-|------|-------------|
+| ---- | ----------- |
 | <a name="output_crn"></a> [crn](#output\_crn) | CRN of the Db2 instance. |
 | <a name="output_dashboard_url"></a> [dashboard\_url](#output\_dashboard\_url) | Dashboard URL of the Db2 instance. |
 | <a name="output_name"></a> [name](#output\_name) | Name of the Db2 instance. |
