@@ -1,7 +1,3 @@
-/********************************************************************
-This file is used to implement the ROOT module.
-*********************************************************************/
-
 resource "ibm_db2" "db2" {
   name                 = var.db2_instance_name
   service              = "dashdb-for-transactions"
