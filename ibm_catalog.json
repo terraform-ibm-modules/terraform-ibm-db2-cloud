@@ -250,7 +250,7 @@
               ],
               "optional": true,
               "on_by_default": true,
-              "version": "v2.2.10"
+              "version": "v2.1.10"
             },
             {
               "name": "deploy-arch-ibm-scc-workload-protection",
