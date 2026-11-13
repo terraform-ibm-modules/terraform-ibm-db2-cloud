@@ -24,10 +24,11 @@ func TestRunBasicExample(t *testing.T) {
 func TestDefaultConfiguration(t *testing.T) {
 
 	options := testaddons.TestAddonsOptionsDefault(&testaddons.TestAddonOptions{
-		Testing:       t,
-		Prefix:        "db2deft",
-		ResourceGroup: resourceGroup,
-		QuietMode:     false, // Suppress logs except on failure
+		Testing:               t,
+		Prefix:                "db2deft",
+		ResourceGroup:         resourceGroup,
+		OverrideInputMappings: core.BoolPtr(true),
+		QuietMode:             false, // Suppress logs except on failure
 	})
 
 	options.AddonConfig = cloudinfo.NewAddonConfigTerraform(
@@ -65,6 +66,11 @@ func TestDefaultConfiguration(t *testing.T) {
 				"app_config_crn": permanentResources["app_config_crn"],
 			},
 			Enabled: core.BoolPtr(true),
+		},
+		{
+			OfferingName:   "deploy-arch-ibm-apprapp",
+			OfferingFlavor: "fully-configurable",
+			Enabled:        core.BoolPtr(false),
 		},
 	}
 
